@@ -25,7 +25,15 @@ freeMobile.sendSMS('Hello World!')
   .catch(error => console.error('Error:', error.message));
 ```
 
-## API
+## API codes
+API codes are not more than HTTP codes.
+- 200 : Success - SMS sent
+- 400 : One or multiple parameters are missing or incorrect
+- 402 : Too many request. Try again later
+- 403 : Acces denied, make sure the option is enabled on your FreeMobile account or check your credentials.
+- 500 : Server internal error. Try again later.
+
+## Explanations
 
 The FreeMobile Node.js Plugin provides a simple API with the following methods:
 
