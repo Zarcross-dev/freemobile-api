@@ -1,5 +1,5 @@
 # FreeMobile Plugin
-
+![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff&style=flat) ![Node.js Badge](https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=flat)
 FreeMobile Plugin is a Node.js module to simplify interaction with the FreeMobile API for sending SMS messages.
 
 ## Installation
@@ -7,13 +7,13 @@ FreeMobile Plugin is a Node.js module to simplify interaction with the FreeMobil
 Install the module using npm:
 
 ```bash
-npm install freemobile-plugin
+npm install freemobile-api
 ```
 
 ## Usage
 ### DISCLAMER : You need a subscription to [FreeMobile](mobile.free.fr) to use this API.
 ```js
-const FreeMobile = require('freemobile-plugin');
+const FreeMobile = require('freemobile-api');
 
 // Replace 'YOUR_USER' and 'YOUR_PASS' with your FreeMobile credentials
 const credentials = { user: 'YOUR_USER', pass: 'YOUR_PASS' };
