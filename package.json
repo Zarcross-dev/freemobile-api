@@ -1,0 +1,19 @@
+{
+  "name": "freemobile-api",
+  "version": "0.5.0",
+  "description": "A simple module for using the FreeMobile API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zarcross-dev/freemobile-api.git"
+  },
+  "author": "Zarcross-dev",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Zarcross-dev/freemobile-api/issues"
+  },
+  "homepage": "https://github.com/Zarcross-dev/freemobile-api#readme"
+}
