@@ -56,6 +56,10 @@ Sends an SMS message through the FreeMobile API.
 - **Returns:**
   - A Promise that resolves with the API response.
 
+## Update note (1.0.4)
+
+Update 1.0.4 - Changed requests mode to POST for more compatibility. No need to convert message with "URIEncode".
+
 ## Contributing
 
 Feel free to open issues or submit pull requests. Contributions are welcome! (In the limits of the FreeMobile API.)
