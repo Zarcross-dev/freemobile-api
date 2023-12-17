@@ -7,10 +7,15 @@ class FreeMobile {
   }
 
   send(message) {
-    const formattedMessage = encodeURIComponent(message);
-    const url = `https://smsapi.free-mobile.fr/sendmsg?user=${this.user}&pass=${this.pass}&msg=${formattedMessage}`;
+    const url = 'https://smsapi.free-mobile.fr/sendmsg';
 
-    return axios.get(url)
+    const data = {
+      user: this.user,
+      pass: this.pass,
+      msg: message
+    };
+
+    return axios.post(url, data)
       .then(response => response.data)
       .catch(error => {
         throw new Error(`Failed to send SMS: ${error.message}`);

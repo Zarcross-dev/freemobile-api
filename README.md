@@ -20,7 +20,7 @@ const credentials = { user: 'YOUR_USER', pass: 'YOUR_PASS' };
 const freeMobile = new FreeMobile(credentials);
 
 // Send an SMS
-freeMobile.sendSMS('Hello World!')
+freeMobile.send('Hello World!')
   .then(response => console.log('SMS sent:', response))
   .catch(error => console.error('Error:', error.message));
 ```
@@ -46,7 +46,7 @@ Creates a new instance of the FreeMobile class with the specified credentials.
     - `user` (String): Your FreeMobile account username.
     - `pass` (String): Your FreeMobile API key.
 
-### `FreeMobile.sendSMS(message)`
+### `FreeMobile.send(message)`
 
 Sends an SMS message through the FreeMobile API.
 
