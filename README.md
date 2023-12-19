@@ -7,11 +7,11 @@ FreeMobile Plugin is a Node.js module to simplify interaction with the FreeMobil
 Install the module using npm:
 
 ```bash
-npm install freemobile-api
+npm install freemobile-api@1.0.5
 ```
 
 ## Usage
-### DISCLAMER : You need a subscription to [FreeMobile](mobile.free.fr) to use this API.
+### DISCLAMER : You need a subscription to [Free Mobile](mobile.free.fr) to use this API.
 ```js
 const FreeMobile = require('freemobile-api');
 
@@ -24,14 +24,6 @@ freeMobile.send('Hello World!')
   .then(response => console.log('SMS sent:', response))
   .catch(error => console.error('Error:', error.message));
 ```
-
-## API codes
-API codes are not more than HTTP codes.
-- 200 : Success - SMS sent
-- 400 : One or multiple parameters are missing or incorrect
-- 402 : Too many request. Try again later
-- 403 : Acces denied, make sure the option is enabled on your FreeMobile account or check your credentials.
-- 500 : Server internal error. Try again later.
 
 ## Explanations
 
@@ -56,13 +48,27 @@ Sends an SMS message through the FreeMobile API.
 - **Returns:**
   - A Promise that resolves with the API response.
 
-## Update note (1.0.4)
+## Module features
 
-Update 1.0.4 - Changed requests mode to POST for more compatibility. No need to convert message with "URIEncode".
+##### 1 - Send large messages.
+The API has a limit of 999 characters. If your message is longer, the plugin breaks it into chunks, each no longer than 999 characters. This helps ensure successful message delivery through the API without exceeding its limits.
+
+If you want more features, see [contributions](#contributing)
+
+## API codes
+
+API codes are not more than HTTP codes.
+- 200 : Success - SMS sent
+- 400 : One or multiple parameters are missing or incorrect
+- 402 : Too many request. Try again later
+- 403 : Acces denied, make sure the option is enabled on your FreeMobile account or check your credentials.
+- 500 : Server internal error. Try again later.
 
 ## Contributing
 
 Feel free to open issues or submit pull requests. Contributions are welcome! (In the limits of the FreeMobile API.)
+
+##### [Buy me a coffee](https://paypal.me/zarcrosstv)
 
 ## License
 
