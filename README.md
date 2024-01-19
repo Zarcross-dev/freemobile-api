@@ -8,7 +8,7 @@ FreeMobile Plugin is a Node.js module to simplify interaction with the FreeMobil
 Install the module using npm:
 
 ```bash
-npm install freemobile-api@1.0.5
+npm install freemobile-api@latest
 ```
 
 ## Usage
