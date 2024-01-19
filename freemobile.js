@@ -1,12 +1,24 @@
-const axios = require('axios');
+const axios = require("axios");
 
 class FreeMobile {
+  /**
+   * The maximum of characters in a chunk.
+   */
+  maxMessageLength = 999;
+
+  /**
+   * @param {{ user: string, pass: string }} credentials 
+   */
   constructor(credentials) {
     this.user = credentials.user;
     this.pass = credentials.pass;
-    this.maxMessageLength = 999;
   }
 
+  /**
+   * Sends an SMS message through the FreeMobile API.
+   * @param {string} message - The text of the SMS message to be sent.
+   * @returns {Promise<any>} A Promise that resolves with the API response.
+   */
   send(message) {
     // Split the message into chunks of maxMessageLength
     const messageChunks = this._chunkString(message, this.maxMessageLength);
@@ -17,7 +29,10 @@ class FreeMobile {
     }, Promise.resolve());
   }
 
-  // Function to send a single SMS
+  /**
+   * Function to send a single SMS
+   * @param {string} chunk
+   */
   _sendSingleSMS(chunk) {
     const url = 'https://smsapi.free-mobile.fr/sendmsg';
     const data = {
@@ -33,7 +48,11 @@ class FreeMobile {
       });
   }
 
-  // Function to split a string into chunks of a specified length
+  /**
+   * Function to split a string into chunks of a specified length
+   * @param {string} str
+   * @param {number} length
+   */
   _chunkString(str, length) {
     const chunks = [];
     for (let i = 0; i < str.length; i += length) {
