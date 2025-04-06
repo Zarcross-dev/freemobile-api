@@ -1,5 +1,7 @@
 # FreeMobile Plugin
-![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff&style=flat) ![Node.js Badge](https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=flat)
+
+![Node.js Badge](https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=flat)
+![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff&style=flat) ![NPM Downloads](https://img.shields.io/npm/d18m/freemobile-api) ![NPM Version](https://img.shields.io/npm/v/freemobile-api)
 
 FreeMobile Plugin is a Node.js module to simplify interaction with the FreeMobile API for sending SMS messages.
 
@@ -12,7 +14,9 @@ npm install freemobile-api@latest
 ```
 
 ## Usage
+
 ### DISCLAMER : You need a subscription to [Free Mobile](mobile.free.fr) to use this API.
+
 ```js
 const FreeMobile = require('freemobile-api');
 
@@ -36,7 +40,7 @@ Creates a new instance of the FreeMobile class with the specified credentials.
 
 - **Parameters:**
   - `credentials` (Object): An object containing the following properties:
-    - `user` (String): Your FreeMobile account username.
+    - `user` (String): Your FreeMobile account number.
     - `pass` (String): Your FreeMobile API key.
 
 ### `FreeMobile.send(message)`
@@ -44,26 +48,33 @@ Creates a new instance of the FreeMobile class with the specified credentials.
 Sends an SMS message through the FreeMobile API.
 
 - **Parameters:**
-  - `message` (String): The text of the SMS message to be sent.
 
+  - `message` (String): The text of the SMS message to be sent.
 - **Returns:**
+
   - A Promise that resolves with the API response.
 
 ## Module features
 
 ##### 1 - Send large messages.
+
 The API has a limit of 999 characters. If your message is longer, the plugin breaks it into chunks, each no longer than 999 characters. This helps ensure successful message delivery through the API without exceeding its limits.
+
+##### 2 - Sending emojis.
+
+FreeMobile API doesn't support emoji sending due to the used charset. To avoid any errors they will be automatically replaced by "[]".
 
 If you want more features, see [contributions](#contributing)
 
 ## API codes
 
 API codes are not more than HTTP codes.
+
 - 200 : Success - SMS sent
 - 400 : One or multiple parameters are missing or incorrect
 - 402 : Too many request. Try again later
 - 403 : Acces denied, make sure the option is enabled on your FreeMobile account or check your credentials.
-- 500 : Server internal error. Try again later.
+- 500 : Server internal error. Try again later. (You maybe sent a wrong message, try to avoid emojis or special caracters.)
 
 ## Contributing
 
