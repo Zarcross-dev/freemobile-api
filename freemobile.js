@@ -74,8 +74,7 @@ class FreeMobile {
    * @returns {string}
    */
   _sanitizeMessage(message) {
-    const sanitizedMessage = message.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '[]')
-    return `${sanitizedMessage}\n\n[] = Emojis are not supported by FreeMobile API. Try to avoid them.`;
+    return message.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '[]')
   }
 }
 
