@@ -20,6 +20,14 @@ class FreeMobile {
    * @returns {Promise<any>} A Promise that resolves with the API response.
    */
   send(message) {
+    if(typeof message !== 'string') {
+      throw new Error("The message must be a string");
+    }
+    message = this._sanitizeMessage(message);
+
+    if (message.trim(),length == 0) {
+      throw new Error("Cannot send empty SMS")
+    }
     // Split the message into chunks of maxMessageLength
     const messageChunks = this._chunkString(message, this.maxMessageLength);
 
@@ -59,6 +67,15 @@ class FreeMobile {
       chunks.push(str.substring(i, i + length));
     }
     return chunks;
+  }
+  /**
+   * Sanitise the message by removing emojis and special unicode symbols
+   * @param {string} message
+   * @returns {string}
+   */
+  _sanitizeMessage(message) {
+    const sanitizedMessage = message.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '[]')
+    return `${sanitizedMessage}\n\n[] = Emojis are not supported by FreeMobile API. Try to avoid them.`;
   }
 }
 
