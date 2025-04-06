@@ -25,7 +25,7 @@ class FreeMobile {
     }
     message = this._sanitizeMessage(message);
 
-    if (message.trim(),length == 0) {
+    if (message.trim().length == 0) {
       throw new Error("Cannot send empty SMS")
     }
     // Split the message into chunks of maxMessageLength
