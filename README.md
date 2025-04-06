@@ -24,7 +24,7 @@ const FreeMobile = require('freemobile-api');
 const credentials = { user: 'YOUR_USER', pass: 'YOUR_PASS' };
 const freeMobile = new FreeMobile(credentials);
 
-// Send an SMS (Your message can't exceed the default SMS limit of 160 character.)
+// Send an SMS
 freeMobile.send('Hello World!')
   .then(response => console.log('SMS sent:', response))
   .catch(error => console.error('Error:', error.message));
