@@ -1,4 +1,5 @@
 const axios = require("axios");
+const supportedEmojis = require("./emojis");
 
 class FreeMobile {
   /**
@@ -68,13 +69,20 @@ class FreeMobile {
     }
     return chunks;
   }
+
   /**
-   * Sanitise the message by removing emojis and special unicode symbols
-   * @param {string} message
-   * @returns {string}
+   * Sanitizes the message by removing unsupported emojis.
+   *
+   * @private
+   * @param {string} message - Message to sanitize
+   * @returns {string} Sanitized message
    */
   _sanitizeMessage(message) {
-    return message.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '[]')
+    // Check the full emoji sequence, including variation selectors (\u{FE0F}) and keycap modifiers (\u{20E3})
+    // If it's an emoji and it's not in the supported list, replace it
+    return message.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}][\u{FE0F}\u{20E3}]?/gu, (match) => {
+      return supportedEmojis.includes(match) ? match : '[]';
+    });
   }
 }
 
