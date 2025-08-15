@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Zarcross-dev/freemobile-api#readme",
   "dependencies": {
-    "axios": "^1.6.2"
+    "axios": "^1.11.0"
   }
 }
