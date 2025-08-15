@@ -86,4 +86,23 @@ class FreeMobile {
   }
 }
 
+/**
+ * FreeMobile API error with status code and error type
+ *
+ * @extends Error
+ */
+class FreeMobileError extends Error {
+  /**
+   * @param {string} message - Error message
+   * @param {number|null} [code=null] - HTTP status code
+   * @param {string} [type] - Error type for programmatic handling
+   */
+  constructor(message, code, type) {
+    super(message);
+    this.name = 'FreeMobileError';
+    this.code = code;
+    this.type = type;
+  }
+}
+
 module.exports = FreeMobile;
