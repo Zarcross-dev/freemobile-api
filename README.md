@@ -62,7 +62,7 @@ The API has a limit of 999 characters. If your message is longer, the plugin bre
 
 ##### 2 - Sending emojis.
 
-FreeMobile API doesn't support emoji sending due to the used charset. To avoid any errors they will be automatically replaced by "[]".
+FreeMobile API has limited emoji support due to charset restrictions. Most emojis will be automatically replaced by "[]" to avoid errors.
 
 If you want more features, see [contributions](#contributing)
 
